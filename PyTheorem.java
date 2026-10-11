@@ -30,5 +30,5 @@ public class PyTheorem
     
     
     
-    }// 
-}
+    }// end of class
+}// end of program

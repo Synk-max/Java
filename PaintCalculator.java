@@ -1,8 +1,8 @@
 /**
  * This program calculates the number of gallons of paint you need to paint a square room.
  *
- * @author APCSA Team
- * @version2025
+ * Milind Tuladhar
+ * October 7th
  */
 
 import java.util.Scanner;
