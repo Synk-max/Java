@@ -27,27 +27,48 @@ public class MPG
         double mpg;
     
         if(vehicle==3){
-            mpg=0;
+            mpg=0.0;
         }
-        else if(vehicle==2){
-            new += "Efficiency";
-        }
-        else
-        {
+        else{
             mpg= n_miles/n_gas;
         }
         
-        return 0;
+        return mpg;
+    }
+    
+    public static String Efficiency(double mpg, String eff)
+    {
+        if(mpg <15){
+            eff = "Poor";
+        }
+        else if(mpg>15 && mpg<=20){
+            eff = "Fair";
+        }
+        else if(mpg>20 && mpg<=30){
+            eff = "Average";
+        }
+        else if(mpg>30 && mpg<=40){
+            eff = "Good";
+        }
+        else
+            eff ="Excellent";
+        
+        
+        return eff;
     }
     
     
-    
    public static void main(String[] args){
-        
+       String tripName = trip();
+       double mpg = Calculation();
+
+        String eff = Efficiency(mpg, "");
+
+        System.out.println("--------Trip Summary--------");
+        System.out.println("Trip Name: " + tripName);
+        System.out.println("Miles Per Gallon: " + mpg);
+        System.out.println("Fuel Efficiency: " + eff);
+    }
        
-       System.out.println("--------Trip Summary--------");
        
-       
-       
-   }
 }

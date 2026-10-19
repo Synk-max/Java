@@ -8,21 +8,21 @@ import java.util.Scanner;
 
 public class OnlinePurchase
 {   
+    static Scanner in = new Scanner(System.in);
     public static String Name(){
-        Scanner in = new Scanner (System.in);
+         
         
-        System.out.println("Enter first and last name");
+        System.out.print("Please enter your first and last name: ");
         String name = in.nextLine();
                 
         return name;
-        
-        
+
     }
     
     public static String Date()
     {
-        Scanner in = new Scanner (System.in);
-        System.out.println("Enter date in mm/dd/yyyy format:");
+         
+        System.out.print("Please enter today's date (mm/dd/yyyy): ");
         String date = in.nextLine();
         
         String month = date.substring(0,2);    
@@ -35,14 +35,14 @@ public class OnlinePurchase
     public static String Item()
     {
        Scanner in = new Scanner(System.in);
-       System.out.println("Item Details \n Item name:");
+       System.out.println("Item Details \n Please enter the name of the item you wish to purchase: ");
        String itemName = in.nextLine();
        
-       System.out.println("Quantity:");
+       System.out.print("Please enter the quantity of the item: ");
        String quantity = in.nextLine();
        int q = Integer.parseInt(quantity);      //converting quantity from astring to a integer
        
-       System.out.println("Price:");
+       System.out.print("Please enter the price per item: ");
        String price = in.nextLine();
        
        double p = Double.parseDouble(price);        //change price from string to double 
@@ -62,12 +62,13 @@ public class OnlinePurchase
     public static String Credentials()
     {
          Scanner in = new Scanner(System.in);
-         System.out.println("Bank credentials:");
-         System.out.println("Please enter Credit Card Number");
+         System.out.print("Please enter your debit card account number: ");
+         
          String cId = in.nextLine();
+         
          String c4= cId.substring(cId.length() -4);       //to extract the last four digits of the card
 
-         System.out.println("Please enter PIN");
+         System.out.print("Please enter your debit card PIN: ");
          String pin = in.nextLine();
          return c4;
     }
@@ -79,16 +80,25 @@ public class OnlinePurchase
         String User=Name();
         String date = Date();
         String Item = Item();
-        String Credentials = Credentials();
-        String orderNumber = Order(User,Credentials);   //Parameters to pass onto Order function once Name() and Credentials() return a value
+        String cardLastFour = Credentials();
+        String orderNumber = Order(User,cardLastFour);   //Parameters to pass onto Order function once Name() and Credentials() return a value
+        System.out.println("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
+        System.out.println("~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~");
+         System.out.println("Your e-Receipt");
+        System.out.println();
+        System.out.println(date);
         System.out.println("\nOrder number:");
         System.out.println(orderNumber);
+         System.out.println();
         System.out.println("Customer:");
         System.out.println(User.substring(0,1));
-        System.out.println(date);
         System.out.println("\n Item Name\t"+"Quantity\t"+"Price\t"+"Total");
         System.out.println(Item);
-        System.out.print("Last four digits of credit card:");
-        System.out.println(Credentials);
+        System.out.println();
+        System.out.print("Last four digits of debit card:");
+        System.out.println(cardLastFour);
+        System.out.println("  Thank you. Enjoy your purchase.");
+        System.out.println("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
+        System.out.println("~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~");
     }
 }
